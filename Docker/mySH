@@ -1,0 +1,45 @@
+#!/bin/bash
+
+echo "Выполнил Коваленко Илья 727"
+echo -e "Софтина для определения изменения файла с момента указанной даты.\n"
+echo "Текущая директория:"
+pwd
+while true
+do
+read -p "Введите имя файла для поиска: " FileName
+read -p "Задайте каталог поиска (Enter выполнить в текущем): " FileDir
+if [ -z $FileDir ]; then
+    FileDir="."
+fi
+TotalPath=$FileDir/$FileName
+if [ -f $TotalPath ]; then
+    echo "Файл найден!"
+    while true
+    do
+    {
+        read -p "Введите дату (YYYY-mm-dd): "
+        getDate=$(date -d $REPLY +'%F')
+    } || {
+        continue 
+    }
+    break
+    done
+    fileDate=$(date -d "@$( stat -c '%Y' $TotalPath )" +'%F %T')
+    if [[ $fileDate > $getDate ]]; then
+        echo "Файл изменялся после указанной даты!"
+        echo "Последнее изменение: $fileDate"
+        exit 120
+    else
+        echo "Файл не изменялся"
+    fi
+else
+    echo "Файл не найден"
+fi
+read -p "Завершить скрипт? [y/n]: "
+case $REPLY in
+    y) break;;
+    n) continue;;
+esac
+done
+#compile-> chmod +x ./file (only once)
+
