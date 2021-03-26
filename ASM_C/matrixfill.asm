@@ -19,7 +19,7 @@ MatrixFill:
             add edx, ecx
             mov [esi + edx * 4], edi  ;m[i][j] = esi + (n * i + j) * 4 = m[z]
 
-            inc ecx     ; i++
+            inc ecx     ; j++
             cmp ecx, [ebp+8]
             JE reset
             jmp for_elements_inrow
@@ -40,7 +40,7 @@ MatrixFill:
         sub edx, eax
         mov [esi + edx * 4], edi
         
-        inc eax ; j++
+        inc eax ; i++
         cmp eax, [ebp+8]
         JE end_cycle
         jmp for_row
