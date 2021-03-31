@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
         cout << "Wrong parameters count!\nCancel" << endl;
         exit(1);
     }
-    cout << "Main programm with pid = " << getpid()<<endl;
+    	cout << "Main programm with pid = " << getpid()<<endl;
 	string INPUT_FILE = argv[1];
 	const int DIVIDER = stoi(argv[2]);
 
