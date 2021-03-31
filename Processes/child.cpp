@@ -46,6 +46,6 @@ int main(int argc, char *argv[])
     fout << "Quantity of Trigramms: " << Trigramms.size() << endl<<endl;
     for(auto it : Trigramms)
         fout << "Trig: " << it.first << "\tFrequency: "<< it.second << endl;
-	fout.close();
+    fout.close();
     exit(0);
 }
