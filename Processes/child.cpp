@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     string Text, row;
     ifstream fin;
-	ofstream fout;
+    ofstream fout;
     fin.open(INPUT_FILE);
     if (!fin.is_open()) {
         cout << "Error to open file" << endl;
