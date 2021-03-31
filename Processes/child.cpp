@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
         }
     }
 
-	fout.open(OUTPUT_FILE);
+    fout.open(OUTPUT_FILE);
     fout << "Fragment of text:" << endl<<Text<<endl<<endl;
     fout << "Quantity of Trigramms: " << Trigramms.size() << endl<<endl;
     for(auto it : Trigramms)
