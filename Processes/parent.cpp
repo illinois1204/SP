@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
 	int FRAGMENT_SIZE = fileSize(INPUT_FILE) / DIVIDER;
 
-	for (int i = 0; i <= DIVIDER; i++) 
+	for (int i = 0; i < DIVIDER; i++) 
 		Processing(INPUT_FILE, FRAGMENT_SIZE, i);
 
 	return 0;
