@@ -8,7 +8,7 @@
 #include <thread>
 using namespace std;
 
-void TrigrammProccesing(string FragmentText, short OperationNumb);
+void TrigrammProccesing(string FragmentText);
 int fileSize(string path_to_file) {
     ifstream file(path_to_file, ios::binary | ios::ate);
     return file.tellg();
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 
     for (short i = 0; i < DIVIDER; i++) {
         int offset = i * FRAGMENT_SIZE;
-        Text_threads.push_back( thread(TrigrammProccesing, TEXT.substr(offset, FRAGMENT_SIZE+2), i) );
+        Text_threads.push_back( thread(TrigrammProccesing, TEXT.substr(offset, FRAGMENT_SIZE+2)) );
     }
 
     for (short th = 0; th < DIVIDER; th++)
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void TrigrammProccesing(string FragmentText, short OperationNumb)
+void TrigrammProccesing(string FragmentText)
 {
     transform(FragmentText.begin(), FragmentText.end(), FragmentText.begin(), ::tolower);
     int frequency;
