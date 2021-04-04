@@ -1,8 +1,9 @@
-﻿#include <iostream>
+#include <iostream>
 #include <algorithm>
 #include <map>
 #include <fstream>
 #include <vector>
+#include <math.h>
 #include <mutex>
 #include <thread>
 using namespace std;
